@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx:1.15-alpine
+    build: ./nginx
+    volumes: 
+      - ./www:/mnt/www
+      - ./nginx/conf/conf.d:/etc/nginx/conf.d
+      # - ./etc/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./runtime/logs/nginx:/tmp/logs/nginx
+    ports: 
+      - "8899:80"
+      - "443:443"
+  php727:
+      image: php:7.2.7-fpm-alpine3.6
+      build: ./php
+      volumes:
+        - ./www:/mnt/www
+        - ./php/conf/php-fpm.d:/usr/local/etc/php-fpm.d
+        - ./runtime/logs/php:/tmp/logs/php
+      ports:
+        - "9006:9000"
