@@ -1,1 +1,1 @@
-FROM alpine:3.7
+FROM mysql:8.0.11

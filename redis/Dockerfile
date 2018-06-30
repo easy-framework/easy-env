@@ -1,1 +1,1 @@
-FROM alpine:3.7
+FROM redis:4-alpine
