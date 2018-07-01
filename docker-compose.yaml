@@ -18,6 +18,15 @@ services:
       volumes:
         - ./www:/mnt/www
         - ./php/conf/php-fpm.d:/usr/local/etc/php-fpm.d
+        - ./php/extensions/:/usr/local/lib/php/extensions
         - ./runtime/logs/php:/tmp/logs/php
+        - ./php/conf/conf.d:/usr/local/etc/php/conf.d
       ports:
         - "9006:9000"
+  redis:
+      image: redis:4-alpine
+      build: ./redis
+      volumes:
+        - ./runtime/logs/redis:/tmp/logs/redis
+      ports:
+        - "63799:6379"
