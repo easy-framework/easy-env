@@ -5,7 +5,7 @@
 
 > Just one command to build all env for the easy-php
 
-<p align="center"><video src="http://cdn.tigerb.cn/easy-env-video.mp4"></video></p>
+<p align="center"><img  width="100%" src="http://cdn.tigerb.cn/easy-env-gif.gif"></p>
 
 
 # Initialization process
@@ -34,4 +34,17 @@ Example:
     easy restart
     easy stop
     easy destroy
+```
+
+# docker images:
+
+```
+docker image ls
+
+REPOSITORY             TAG                   IMAGE ID            CREATED             SIZE
+php                    7.2.7-fpm-alpine3.6   39b42adef50e        10 days ago         79.9MB
+mysql                  8.0.11                8d99edb9fd40        11 days ago         445MB
+redis                  4-alpine              caaeda72bf8f        3 weeks ago         27.8MB
+nginx                  1.15-alpine           bc7fdec94612        4 weeks ago         18MB
+
 ```
