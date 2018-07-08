@@ -20,7 +20,7 @@ port=$6
 sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/easy.conf.tpl > $easy_path/nginx/conf/conf.d/easy.conf
 
 # ------------------ php ---------------------
-echo -e "\033[36m[STEP]\033[0m -> clone & init the project..."
+echo -e "\033[36m[STEP]\033[0m -> Clone & Init the project..."
 
 # create project & init the project
 cd $easy_path/www && composer create-project tigerb/easy-php easy --prefer-dist && cd easy
@@ -31,18 +31,18 @@ composer dump-autoload --optimize
 git init && git add -A && git commit -m 'feat(all): project init commit'
 cp -r ./.git-hooks/* ./.git/hooks && chmod +x ./.git/hooks/pre-commit && chmod +x ./.git/hooks/commit-msg
 
-echo -e "done."
+echo -e "\033[36mdone.\033[0m"
 
 # ------------------ docker ---------------------
 
-echo -e "\033[36m[STEP]\033[0m -> init & start docker container..."
+echo -e "\033[36m[STEP]\033[0m -> Init & Start the docker container..."
 
 # init docker env
 docker-compose up -d
 
-echo -e "done."
+echo -e "\033[36mdone.\033[0m"
 # ------------------ fe ---------------------
-echo -e "\033[36m[STEP]\033[0m -> build frontent..."
+echo -e "\033[36m[STEP]\033[0m -> Build frontent..."
 
 # step 1
 cd $easy_path/www/easy/frontend && yarn install
