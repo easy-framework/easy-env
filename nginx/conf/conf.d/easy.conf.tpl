@@ -1,6 +1,6 @@
 server {
     listen       80;
-    server_name  easy-php.demo.io 192.168.199.191;
+    server_name  easy-php.demo.io {{intranet}};
 
     #charset koi8-r;
     access_log  /var/log/nginx/easy-php.demo.io.access.log  main;
@@ -30,7 +30,7 @@ server {
     #
     location ~ \.php$ {
        root           /mnt/www/easy/public;
-       fastcgi_pass   192.168.199.191:9006;
+       fastcgi_pass   {{intranet}}:9006;
        fastcgi_index  index.php;
        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
        include        fastcgi_params;

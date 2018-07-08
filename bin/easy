@@ -1,3 +1,69 @@
-!#/bin/bash
+#!/bin/bash
+#         
+# Build the easy-php dev environment so easy by Docker
+#
+# Author TIGERB <tigerb.cn>
 
-docker run alpine
+# get os version
+command=$1
+osx="Darwin"
+os=$(uname -a | awk 'BEGIN{FS=" "} {print $1}')
+
+easy_path=$(echo "$EASY_PATH")
+
+# check env path
+if [[ "$easy_path" == "" ]]
+then
+    echo -e "Please set your EASY_PATH for the env path <You can get the help from the README> ..."
+    exit
+fi
+
+# get local ip
+if [[ "$os" == "$osx"  ]] 
+then
+	intranet_ip=$(ifconfig en0 | grep 'inet ' | awk -F ' ' '{print $2}')
+else
+  	intranet_ip=$(ifconfig eth0 | grep 'inet addr:' | awk -F ' ' '{print $2}' | awk -F ':' '{print $2}')
+fi
+
+# port
+port="80"
+# domain
+domain="$intranet_ip"
+
+# ------------------- command ----------------------
+
+case $command in
+  	"init")
+		bash $easy_path/bin/scripts/init.sh $easy_path $intranet_ip $os $osx $domain $port
+  	;;
+  	"start")
+		bash $easy_path/bin/scripts/start.sh
+  	;;
+	"restart")
+		bash $easy_path/bin/scripts/restart.sh
+  	;;
+	"stop")
+		bash $easy_path/bin/scripts/stop.sh
+  	;;
+	"destroy")
+		bash $easy_path/bin/scripts/destroy.sh $easy_path
+  	;;
+  	*)
+cat <<EOF
+    Usage:
+        easy init/start/restart/stop/destroy
+
+    Example:
+        easy init
+        easy start
+        easy restart
+        easy stop
+        easy destroy
+EOF
+	echo -e "\n \033[36m Build the Easy PHP dev environment easily by Docker\033[0m \n"
+	echo -e "  \033[36mTIGERB <https://github.com/TIGERB> \033[0m \n"
+	exit
+  ;;
+esac
+

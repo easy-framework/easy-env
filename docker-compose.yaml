@@ -10,7 +10,9 @@ services:
       # - ./etc/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
       - ./runtime/logs/nginx:/tmp/logs/nginx
     ports: 
-      - "8899:80"
+      - "80:80"
+      # - "80:8080"
+      # - "8080:8080"
       - "443:443"
   php727:
       image: php:7.2.7-fpm-alpine3.6
