@@ -49,6 +49,9 @@ case $command in
 	"destroy")
 		bash $easy_path/bin/scripts/destroy.sh $easy_path
   	;;
+	"login")
+		bash $easy_path/bin/scripts/login.sh $2
+ 	;;
   	*)
 cat <<EOF
     Usage:

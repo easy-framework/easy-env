@@ -32,3 +32,12 @@ services:
         - ./runtime/logs/redis:/tmp/logs/redis
       ports:
         - "63799:6379"
+  mysql:
+      image: mysql:5.7
+      build: ./mysql
+      environment: 
+        MYSQL_ROOT_PASSWORD: easy
+      volumes:
+        - ./runtime/logs/redis:/tmp/logs/mysql
+      ports:
+        - "3306:3306"

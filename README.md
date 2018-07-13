@@ -19,14 +19,14 @@ Yeah, That's so cool. I enjoy the feeling when I only need to execute one comman
 Please install the docker & npm & yarn first!
 
 
-> export EASY_PATH=$(pwd) && export PATH="$PATH:$EASY_PATH/bin"
+> echo export EASY_PATH=$(pwd) >> ~/.profile && echo 'export PATH="$PATH:$EASY_PATH/bin"' >> ~/.profile && source ~/.profile
 
 
 ### Commands:
 
 ```
 Usage:
-    easy init/start/restart/stop/destroy
+    easy init/start/restart/stop/destroy/login
 
 Example:
     easy init
@@ -34,6 +34,7 @@ Example:
     easy restart
     easy stop
     easy destroy
+    easy login <php/redis/nginx/mysql>
 ```
 
 # docker images:
