@@ -1,0 +1,17 @@
+{
+    "name": "easy-framework/easy-env",
+    "description": "Just one command to build all env for the easy-php",
+    "authors": [
+        {
+            "name": "TIGERB",
+            "email": "tigerbcode@gmail.com"
+        }
+    ],
+    "keywords": [
+        "easy-env",
+        "easy-php"
+    ],
+    "homepage": "https://github.com/easy-framework",
+    "license": "MIT",
+    "minimum-stability": "stable"
+}

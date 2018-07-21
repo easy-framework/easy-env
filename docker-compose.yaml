@@ -41,3 +41,10 @@ services:
         - ./runtime/logs/redis:/tmp/logs/mysql
       ports:
         - "3306:3306"
+  mongo:
+      image: mongo:3.6-jessie
+      build: ./mongo
+      volumes:
+        - ./runtime/logs/mongo:/tmp/logs/mongo
+      ports:
+        - "27017:27017"

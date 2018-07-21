@@ -33,6 +33,7 @@ server {
        fastcgi_pass   {{intranet}}:9006;
        fastcgi_index  index.php;
        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+       fastcgi_param  PHP_VALUE "auto_prepend_file=/mnt/www/xhgui-branch/external/header.php";
        include        fastcgi_params;
     }
 

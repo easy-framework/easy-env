@@ -16,8 +16,9 @@ port=$6
 # add host
 # echo "$intranet_ip $domain" >> /etc/hosts
 
-# exchange ip for  nginx/conf/conf.d/easy.conf
+# exchange ip for  nginx/conf/conf.d
 sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/easy.conf.tpl > $easy_path/nginx/conf/conf.d/easy.conf
+sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/xhgui.conf.tpl > $easy_path/nginx/conf/conf.d/xhgui.conf
 
 # ------------------ php ---------------------
 echo -e "\033[36m[STEP]\033[0m -> Clone & Init the project..."
@@ -31,6 +32,11 @@ composer dump-autoload --optimize
 git init && git add -A && git commit -m 'feat(all): project init commit'
 cp -r ./.git-hooks/* ./.git/hooks && chmod +x ./.git/hooks/pre-commit && chmod +x ./.git/hooks/commit-msg
 
+# get xghui
+cd $easy_path/www
+git clone https://github.com/laynefyc/xhgui-branch.git
+sed "s/{{intranet}}/$intranet_ip/g" $easy_path/configs/xhgui/config.default.php > $easy_path/www/xhgui-branch/config/config.default.php
+
 echo -e "\033[36mdone.\033[0m"
 
 # ------------------ docker ---------------------
@@ -39,6 +45,9 @@ echo -e "\033[36m[STEP]\033[0m -> Init & Start the docker container..."
 
 # init docker env
 docker-compose up -d
+
+# composer install xghui
+docker exec easy-env_php727_1 sh -c "cd /mnt/www/xhgui-branch && php install.php"
 
 echo -e "\033[36mdone.\033[0m"
 # ------------------ fe ---------------------
@@ -64,3 +73,5 @@ else
   # debian os
   xdg-open "http://$domain:$port/index.html"
 fi
+
+echo -e "\033[36mNow Bind your host in /etc/hosts: $intranet_ip xhgui.demo.io\033[0m"

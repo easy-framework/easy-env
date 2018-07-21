@@ -1,1 +1,1 @@
-FROM alpine:3.7
+FROM mongo:3.6-jessie
