@@ -29,7 +29,7 @@ fi
 # port
 port="80"
 # domain
-domain="$intranet_ip"
+domain="easy-php.demo.io"
 
 # ------------------- command ----------------------
 

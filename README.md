@@ -7,13 +7,61 @@
 
 <p align="center"><img  width="100%" src="http://cdn.tigerb.cn/easy-env-gif.gif"></p>
 
+# file structure
+
+```
+├── README.md
+├── _config.yml
+├── bin
+│   ├── easy
+│   └── scripts
+│       ├── destroy.sh
+│       ├── init.sh
+│       ├── login.sh
+│       ├── restart.sh
+│       ├── start.sh
+│       └── stop.sh
+├── composer.json
+├── configs
+│   └── xhgui
+│       └── config.default.php
+├── docker-compose.yaml
+├── mongo
+│   └── Dockerfile
+├── mysql
+│   └── Dockerfile
+├── nginx
+│   ├── Dockerfile
+│   └── conf
+│       ├── conf.d
+│       └── nginx.conf
+├── php
+│   ├── Dockerfile
+│   ├── conf
+│   │   ├── conf.d
+│   │   ├── php-fpm.conf
+│   │   ├── php-fpm.d
+│   │   └── php.ini
+│   └── extensions
+│       └── no-debug-non-zts-20170718
+├── redis
+│   └── Dockerfile
+├── runtime
+│   └── logs
+│       ├── mongo
+│       ├── nginx
+│       ├── php
+│       └── redis
+└── www
+```
+
 
 # Initialization process
 
 Yeah, That's so cool. I enjoy the feeling when I only need to execute one command, As the same time, my project and development enviorment, etc. all is ready. What's more, the project is opened in the windows by the command.
 Meanwhile, **xhgui is support**.
 
-<p align="center"><img width="18%" src="http://cdn.tigerb.cn/easy-env.png"></p>
+<p align="center"><img width="30%" src="http://cdn.tigerb.cn/easy-env.png"></p>
 
 # How to use?
 
@@ -38,42 +86,10 @@ Example:
     easy login <php/redis/nginx/mysql/mongo>
 ```
 
-# directory
-
-```
-|-- README.md
-|-- _config.yml
-|-- bin
-|   |-- easy
-|   `-- scripts
-|-- composer.json
-|-- configs
-|   `-- xhgui
-|-- docker-compose.yaml
-|-- mongo
-|   `-- Dockerfile
-|-- mysql
-|   `-- Dockerfile
-|-- nginx
-|   |-- Dockerfile
-|   `-- conf
-|-- php
-|   |-- Dockerfile
-|   |-- conf
-|   `-- extensions
-|-- redis
-|   `-- Dockerfile
-|-- runtime
-|   `-- logs
-`-- www
-    |-- easy
-    `-- xhgui-branch
-```
-
 # docker images:
 
 ```
-REPOSITORY                               TAG                   IMAGE ID            CREATED             SIZE
+REPOSITORY         TAG                   IMAGE ID            CREATED             SIZE
 mongo              3.6-jessie            ceee4d1620d4        4 days ago          368MB
 php                7.2.7-fpm-alpine3.6   39b42adef50e        3 weeks ago         79.9MB
 mysql              5.7                   66bc0f66b7af        3 weeks ago         372MB

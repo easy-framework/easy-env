@@ -16,9 +16,10 @@ port=$6
 # add host
 # echo "$intranet_ip $domain" >> /etc/hosts
 
+# use docker network
 # exchange ip for  nginx/conf/conf.d
-sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/easy.conf.tpl > $easy_path/nginx/conf/conf.d/easy.conf
-sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/xhgui.conf.tpl > $easy_path/nginx/conf/conf.d/xhgui.conf
+# sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/easy.conf.tpl > $easy_path/nginx/conf/conf.d/easy.conf
+# sed "s/{{intranet}}/$intranet_ip/g" $easy_path/nginx/conf/conf.d/xhgui.conf.tpl > $easy_path/nginx/conf/conf.d/xhgui.conf
 
 # ------------------ php ---------------------
 echo -e "\033[36m[STEP]\033[0m -> Clone & Init the project..."
@@ -74,4 +75,7 @@ else
   xdg-open "http://$domain:$port/index.html"
 fi
 
-echo -e "\033[36mNow Bind your host in /etc/hosts: $intranet_ip xhgui.demo.io\033[0m"
+echo -e "\033[36m ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \033[0m"
+echo -e "\033[36mNow Bind your host in /etc/hosts: \033[0m"
+echo -e "$intranet_ip xhgui.demo.io"
+echo -e "$intranet_ip easy-php.demo.io"

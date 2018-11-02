@@ -30,7 +30,7 @@ server {
     #
     location ~ \.php$ {
        root           /mnt/www/xhgui-branch/webroot;
-       fastcgi_pass   {{intranet}}:9006;
+       fastcgi_pass   {{intranet}}:9000;
        fastcgi_index  index.php;
        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
        include        fastcgi_params;

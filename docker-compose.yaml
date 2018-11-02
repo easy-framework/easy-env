@@ -11,40 +11,53 @@ services:
       - ./runtime/logs/nginx:/tmp/logs/nginx
     ports: 
       - "80:80"
-      # - "80:8080"
-      # - "8080:8080"
-      - "443:443"
+      # - "443:443"
+    networks: 
+      - default
   php727:
-      image: php:7.2.7-fpm-alpine3.6
-      build: ./php
-      volumes:
-        - ./www:/mnt/www
-        - ./php/conf/php-fpm.d:/usr/local/etc/php-fpm.d
-        - ./php/extensions/:/usr/local/lib/php/extensions
-        - ./runtime/logs/php:/tmp/logs/php
-        - ./php/conf/conf.d:/usr/local/etc/php/conf.d
-      ports:
-        - "9006:9000"
+    image: php:7.2.7-fpm-alpine3.6
+    build: ./php
+    volumes:
+      - ./www:/mnt/www
+      - ./php/conf/php-fpm.d:/usr/local/etc/php-fpm.d
+      - ./php/conf/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      - ./php/extensions/:/usr/local/lib/php/extensions
+      - ./runtime/logs/php:/tmp/logs/php
+      - ./php/conf/conf.d:/usr/local/etc/php/conf.d
+    ports:
+      - "9000:9000"
+    networks: 
+      - default
   redis:
-      image: redis:4-alpine
-      build: ./redis
-      volumes:
-        - ./runtime/logs/redis:/tmp/logs/redis
-      ports:
-        - "63799:6379"
+    image: redis:4-alpine
+    build: ./redis
+    volumes:
+      - ./runtime/logs/redis:/tmp/logs/redis
+    ports:
+      - "6379:6379"
+    networks: 
+      - default
   mysql:
-      image: mysql:5.7
-      build: ./mysql
-      environment: 
-        MYSQL_ROOT_PASSWORD: easy
-      volumes:
-        - ./runtime/logs/redis:/tmp/logs/mysql
-      ports:
-        - "3306:3306"
+    image: mysql:5.7
+    build: ./mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: easy
+    volumes:
+      - ./runtime/logs/redis:/tmp/logs/mysql
+    ports:
+      - "3306:3306"
+    networks: 
+      - default
   mongo:
-      image: mongo:3.6-jessie
-      build: ./mongo
-      volumes:
-        - ./runtime/logs/mongo:/tmp/logs/mongo
-      ports:
-        - "27017:27017"
+    image: mongo:3.6-jessie
+    build: ./mongo
+    volumes:
+      - ./runtime/logs/mongo:/tmp/logs/mongo
+    ports:
+      - "27017:27017"
+    networks: 
+      - default
+networks: 
+  default:
+    external: 
+      name: dockerenv_default
