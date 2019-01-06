@@ -5,7 +5,7 @@
 
 > Just one command to build all env for the easy-php
 
-<p align="center"><img  width="100%" src="http://cdn.tigerb.cn/easy-env-gif.gif"></p>
+[![easy-env](https://asciinema.org/a/219911.svg)](https://asciinema.org/a/219911?autoplay=1)
 
 # file structure
 
