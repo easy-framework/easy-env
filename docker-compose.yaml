@@ -2,6 +2,7 @@ version: "3"
 
 services:
   nginx:
+    container_name: easy-nginx
     image: nginx:1.15-alpine
     build: ./nginx
     volumes: 
@@ -15,6 +16,7 @@ services:
     networks: 
       - default
   php727:
+    container_name: easy-php
     image: php:7.2.7-fpm-alpine3.6
     build: ./php
     volumes:
@@ -29,6 +31,7 @@ services:
     networks: 
       - default
   redis:
+    container_name: easy-redis
     image: redis:4-alpine
     build: ./redis
     volumes:
@@ -38,6 +41,7 @@ services:
     networks: 
       - default
   mysql:
+    container_name: easy-mysql
     image: mysql:5.7
     build: ./mysql
     environment: 
@@ -49,6 +53,7 @@ services:
     networks: 
       - default
   mongo:
+    container_name: easy-mongo
     image: mongo:3.6-jessie
     build: ./mongo
     volumes:
@@ -60,4 +65,4 @@ services:
 networks: 
   default:
     external: 
-      name: dockerenv_default
+      name: easy

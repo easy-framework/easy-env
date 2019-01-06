@@ -44,6 +44,9 @@ echo -e "\033[36mdone.\033[0m"
 
 echo -e "\033[36m[STEP]\033[0m -> Init & Start the docker container..."
 
+# create network
+docker network create easy
+
 # init docker env
 docker-compose up -d
 
