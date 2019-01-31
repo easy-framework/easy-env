@@ -6,9 +6,4 @@
 
 service=$1
 
-if [[ "$service" == "php" ]]
-then
-    service="php727"
-fi
-
-docker exec -it easy-env_"$service"_1 sh
+docker exec -it easy-"$service" sh

@@ -55,7 +55,7 @@ case $command in
   	*)
 cat <<EOF
     Usage:
-        easy init/start/restart/stop/destroy
+        easy init/start/restart/stop/destroy/login
 
     Example:
         easy init
@@ -63,6 +63,7 @@ cat <<EOF
         easy restart
         easy stop
         easy destroy
+        easy login [php|nginx|redis|mysql|mongo]
 EOF
 	echo -e "\n \033[36m Build the Easy PHP dev environment easily by Docker\033[0m \n"
 	echo -e "  \033[36mTIGERB <https://github.com/TIGERB> \033[0m \n"
