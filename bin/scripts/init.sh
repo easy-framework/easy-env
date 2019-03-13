@@ -24,6 +24,19 @@ port=$6
 # ------------------ php ---------------------
 echo -e "\033[36m[STEP]\033[0m -> Clone & Init the project..."
 
+# check composer
+check_res=$(command -v composer)
+if [[ "$check_res" == "" ]]
+then
+  if [[ "$os" == "$osx" ]] 
+  then
+    # mac os
+    brew install composer
+  else
+    sudo apt-get install composer
+  fi
+fi
+
 # create project & init the project
 cd $easy_path/www && composer create-project tigerb/easy-php easy --prefer-dist && cd easy
 
@@ -43,6 +56,20 @@ echo -e "\033[36mdone.\033[0m"
 # ------------------ docker ---------------------
 
 echo -e "\033[36m[STEP]\033[0m -> Init & Start the docker container..."
+
+# check docker
+check_res=$(command -v docker)
+if [[ "$check_res" == "" ]]
+then
+  echo -e "\033[36m[STEP]\033[0m Please install docker !"
+fi
+
+check_res=$(command -v docker-compose)
+if [[ "$check_res" == "" ]]
+then
+  echo -e "\033[36m[STEP]\033[0m Please install docker-compose !"
+fi
+
 
 # create network
 docker network create easy
