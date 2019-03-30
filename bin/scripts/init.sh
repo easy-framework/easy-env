@@ -78,7 +78,7 @@ docker network create easy
 docker-compose up -d
 
 # composer install xghui
-docker exec easy-env_php727_1 sh -c "cd /mnt/www/xhgui-branch && php install.php"
+docker exec easy-php sh -c "cd /mnt/www/xhgui-branch && php install.php"
 
 echo -e "\033[36mdone.\033[0m"
 # ------------------ fe ---------------------
