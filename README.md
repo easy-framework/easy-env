@@ -68,7 +68,7 @@ Meanwhile, **xhgui is support**.
 Please install the docker & npm & yarn first!
 
 
-> echo export EASY_PATH=$(pwd) >> ~/.profile && echo 'export PATH="$PATH:$EASY_PATH/bin"' >> ~/.profile && source ~/.profile
+> curl -sL https://raw.githubusercontent.com/easy-framework/easy-env/master/bin/init.sh | sh
 
 
 ### Commands:
