@@ -7,6 +7,29 @@
 
 [![easy-env](https://asciinema.org/a/219911.svg)](https://asciinema.org/a/219911?autoplay=1)
 
+# How to use?
+
+Please install the docker & npm & yarn first!
+
+
+> curl -sL https://raw.githubusercontent.com/easy-framework/easy-env/master/bin/init.sh | bash && source ~/.profile
+
+
+### Commands:
+
+```shell
+Usage:
+    easy init/start/restart/stop/destroy/login
+
+Example:
+    easy init
+    easy start
+    easy restart
+    easy stop
+    easy destroy
+    easy login <php/redis/nginx/mysql/mongo>
+```
+
 # file structure
 
 ```
@@ -62,29 +85,6 @@ Yeah, That's so cool. I enjoy the feeling when I only need to execute one comman
 Meanwhile, **xhgui is support**.
 
 <p align="center"><img width="30%" src="http://cdn.tigerb.cn/easy-env.png"></p>
-
-# How to use?
-
-Please install the docker & npm & yarn first!
-
-
-> echo export EASY_PATH=$(pwd) >> ~/.profile && echo 'export PATH="$PATH:$EASY_PATH/bin"' >> ~/.profile && source ~/.profile
-
-
-### Commands:
-
-```
-Usage:
-    easy init/start/restart/stop/destroy/login
-
-Example:
-    easy init
-    easy start
-    easy restart
-    easy stop
-    easy destroy
-    easy login <php/redis/nginx/mysql/mongo>
-```
 
 # docker images:
 
