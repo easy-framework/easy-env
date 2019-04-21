@@ -4,4 +4,4 @@
 #
 # Author TIGERB <tigerb.cn>
 
-docker-compose start
+docker-compose -f $EASY_PATH/docker-compose.yaml start

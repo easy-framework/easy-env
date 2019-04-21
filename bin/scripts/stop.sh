@@ -4,4 +4,4 @@
 #
 # Author TIGERB <tigerb.cn>
 
-docker-compose stop
+docker-compose -f $EASY_PATH/docker-compose.yaml stop

@@ -4,4 +4,4 @@
 #
 # Author TIGERB <tigerb.cn>
 
-docker-compose restart
+docker-compose -f $EASY_PATH/docker-compose.yaml restart

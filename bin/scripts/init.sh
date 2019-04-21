@@ -75,7 +75,7 @@ fi
 docker network create easy
 
 # init docker env
-docker-compose up -d
+docker-compose -f $EASY_PATH/docker-compose.yaml up -d
 
 # composer install xghui
 docker exec easy-php sh -c "cd /mnt/www/xhgui-branch && php install.php"
